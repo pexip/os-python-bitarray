@@ -1,0 +1,39 @@
+#!/usr/bin/make -f
+
+#export DH_VERBOSE=1
+export PYBUILD_NAME=bitarray
+
+DPKG_EXPORT_BUILDFLAGS = 1
+include /usr/share/dpkg/buildflags.mk
+include /usr/share/python3/python.mk
+
+DOCTEMPDIR=$(CURDIR)/debian/buildhtml
+
+# Move README.html creation here:
+# we need to have the build-directory, so that we can import `bitarray`,
+# so let's have pybuild do the heavy lifting of locating it
+export PYBUILD_AFTER_BUILD=\
+mkdir -p $(DOCTEMPDIR)/doc && \
+cp $(CURDIR)/README.rst $(CURDIR)/CHANGE_LOG $(CURDIR)/update_doc.py $(DOCTEMPDIR); \
+cp $(CURDIR)/doc/*.rst $(DOCTEMPDIR)/doc; cd $(DOCTEMPDIR); \
+PYTHONPATH={build_dir} {interpreter} update_doc.py; \
+pandoc -r gfm -w html5 -o README.html -s --toc --metadata title="BitArray Documentation" README.rst; \
+mv $(DOCTEMPDIR)/README.html $(CURDIR)
+
+override_dh_auto_clean:
+	rm -rf $(DOCTEMPDIR) README.html build
+	dh_auto_clean
+
+override_dh_installchangelogs:
+	dh_installchangelogs CHANGE_LOG
+
+override_dh_auto_test:
+	PYBUILD_SYSTEM=custom \
+	PYBUILD_TEST_ARGS="cd {build_dir}; {interpreter} -c 'import bitarray; bitarray.test()'" dh_auto_test
+
+override_dh_installexamples:
+	dh_installexamples
+	find $(CURDIR)/debian/python*-bitarray  -name '.gitignore' -delete
+
+%:
+	dh $@ --with python3 --buildsystem=pybuild

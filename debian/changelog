@@ -1,0 +1,172 @@
+python-bitarray (2.9.2-1) unstable; urgency=medium
+
+  * New upstream release
+  * Add Rules-Requires-Root: no to d/control
+
+ -- Scott Kitterman <scott@kitterman.com>  Fri, 05 Jan 2024 15:01:39 -0500
+
+python-bitarray (2.8.1-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Scott Kitterman <scott@kitterman.com>  Sat, 12 Aug 2023 14:04:20 -0400
+
+python-bitarray (2.8.0-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Scott Kitterman <scott@kitterman.com>  Mon, 24 Jul 2023 21:51:05 -0400
+
+python-bitarray (2.7.6-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Scott Kitterman <scott@kitterman.com>  Sun, 25 Jun 2023 01:20:14 -0400
+
+python-bitarray (2.7.5-1) unstable; urgency=medium
+
+  * New upstream release
+  * Add myself to Uploaders
+
+ -- Scott Kitterman <scott@kitterman.com>  Mon, 19 Jun 2023 19:12:40 -0400
+
+python-bitarray (2.7.3-1) unstable; urgency=medium
+
+  * Team upload
+  * Upload to unstable
+
+ -- Scott Kitterman <scott@kitterman.com>  Fri, 31 Mar 2023 12:26:27 -0400
+
+python-bitarray (2.7.3-1~exp1) experimental; urgency=medium
+
+  * Team upload
+
+  [ Debian Janitor ]
+  * Bump debhelper from old 12 to 13.
+  * Update standards version to 4.6.1, no changes needed.
+
+  [ Scott Kitterman ]
+  * Upload to experimental for testing
+  * Update d/rules and d/docs for upstream documentation changes
+  * Add d/source/options to extend-diff-ignore egg.info because painful
+  * Add autopkgtest (runs full upstream test suite)
+  * Bump standards-version to 4.6.2 with no further changes
+
+ -- Scott Kitterman <scott@kitterman.com>  Tue, 28 Mar 2023 08:33:31 -0400
+
+python-bitarray (1.6.3-2) unstable; urgency=medium
+
+  * Reupload to unstable
+
+ -- Jan Dittberner <jandd@debian.org>  Wed, 03 Feb 2021 17:38:04 +0100
+
+python-bitarray (1.6.3-1) experimental; urgency=medium
+
+  [ Debian Janitor ]
+  * Use secure URI in debian/watch.
+  * Bump debhelper from old 9 to 12.
+
+  [ Ondřej Nový ]
+  * d/control: Update Vcs-* fields with new Debian Python Team Salsa
+    layout.
+
+  [ Sandro Tosi ]
+  * Use the new Debian Python Team contact name and address
+
+  [ Antonio Valentino ]
+  * New upstream release.
+  * d/control:
+    - bump Standards-Version to 4.5.1, no change
+    - drop dpkg-dev versioned dependency, no longer necessary
+    - add Testsuite: autopkgtest-pkg-python
+    - add Rules-Requires-Root: no
+    - update Homepage fields (point to github)
+    - docutils replaced by pandoc in the list of build dependencies
+  * d/watch:
+    - update watch file format version to 4
+    - use upstream tarball form github
+  * d/copyright:
+    - update Source fields: point to github
+    - update copyright date
+    - update license text
+  * d/patches: drop 2to3_update_readme.patch, no longer necessary.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+  * d/rules:
+    - fix doc build
+    - remove vcs control files from examples
+
+ -- Jan Dittberner <jandd@debian.org>  Sat, 30 Jan 2021 12:04:25 +0100
+
+python-bitarray (0.8.1-2) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * Fixed homepage (https)
+  * Fixed VCS URL (https)
+  * d/control: Set Vcs-* to salsa.debian.org
+  * d/copyright: Use https protocol in Format field
+  * d/control: Remove ancient X-Python-Version field
+  * d/control: Remove ancient X-Python3-Version field
+  * Convert git repository from git-dpm to gbp layout
+  * Use debhelper-compat instead of debian/compat.
+
+  [ Sandro Tosi ]
+  * Drop python2 support; Closes: #937610
+
+ -- Sandro Tosi <morph@debian.org>  Sun, 15 Dec 2019 17:23:35 -0500
+
+python-bitarray (0.8.1-1) unstable; urgency=low
+
+  [ Jakub Wilk ]
+  * Use canonical URIs for Vcs-* fields.
+
+  [ Jan Dittberner ]
+  * New upstream version
+  * run wrap-and-sort (affects debian/control and debian/copyright)
+  * debian/control: bump Standards-Version to 3.9.5
+  * switch to pybuild
+    - add dh-python, python-setuptools and python3-setuptools to Build-
+      Depends
+    - use python-all instead of python in Build-Depends
+    - switch to debhelper (>= 9)
+    - add X-Python-Version and X-Python3-Version to source package stanza
+    - drop custom rules from debian/rules, add PYBUILD_NAME and
+      --buildsystem=pybuild
+    - add override_dh_auto_test to tell pybuild about the custom test system
+
+ -- Jan Dittberner <jandd@debian.org>  Sun, 15 Jun 2014 22:15:10 +0200
+
+python-bitarray (0.8.0-2) unstable; urgency=low
+
+  * add Python3 support
+    - add new binary package stanza for python3-bitarray
+    - add python3-all-dev and python3 (>= 3.1.3-2~) to Build-Depends
+    - add python3 handling to debian/rules
+
+ -- Jan Dittberner <jandd@debian.org>  Fri, 18 May 2012 10:57:12 +0200
+
+python-bitarray (0.8.0-1) unstable; urgency=low
+
+  * New upstream version.
+  * remove debian/patches/0001_fix_typo_in_example.patch, not relevant
+    anymore
+  * move from python-support to dh_python2
+    - remove python-support from Build-Depends
+    - bump minimum python version to 2.6.6-3~
+    - remove debian/pycompat
+    - add --with python2 to debian/rules
+  * bump Standards-Version to 3.9.3 (no changes)
+  * build README.html from README.rst using upstream's update_readme.py
+  * run test suite
+  * enable hardening build flags
+    - import build flags in debian/rules
+    - add dpkg-dev (>= 1.16.1~) to Build-Depends
+  * update debian/copyright format
+
+ -- Jan Dittberner <jandd@debian.org>  Thu, 17 May 2012 23:53:49 +0200
+
+python-bitarray (0.3.5-1) unstable; urgency=low
+
+  * Initial release. (Closes: #593333)
+
+ -- Jan Dittberner <jandd@debian.org>  Tue, 17 Aug 2010 15:14:23 +0200

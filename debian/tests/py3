@@ -1,0 +1,9 @@
+#! /bin/sh
+
+set -e
+
+cd /
+for py3vers in $(py3versions -sv); do
+    echo Testing with python$py3vers
+    python$py3vers -c 'import bitarray; bitarray.test()'
+done
