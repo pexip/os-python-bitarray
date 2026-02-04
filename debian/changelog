@@ -1,3 +1,9 @@
+python-bitarray (2.9.2-1+pexip25u1) pexip-trixie; urgency=medium
+
+  * Prepare Pexip packaging
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Wed, 04 Feb 2026 09:51:18 +0000
+
 python-bitarray (2.9.2-1) unstable; urgency=medium
 
   * New upstream release

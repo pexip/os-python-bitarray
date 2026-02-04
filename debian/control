@@ -1,8 +1,9 @@
 Source: python-bitarray
 Section: python
 Priority: optional
-Maintainer: Debian Python Team <team+python@tracker.debian.org>
-Uploaders: Jan Dittberner <jandd@debian.org>,
+Maintainer: Pexip AS <packaging@pexip.com>
+XSBC-Pexip-Original-Maintainer: Debian Python Team <team+python@tracker.debian.org>
+XSBC-Pexip-Original-Uploaders: Jan Dittberner <jandd@debian.org>,
            Scott Kitterman <scott@kitterman.com>
 Build-Depends: debhelper-compat (= 13),
                dh-python,
@@ -15,6 +16,7 @@ Homepage: https://github.com/ilanschnell/bitarray
 Vcs-Git: https://salsa.debian.org/python-team/packages/python-bitarray.git
 Vcs-Browser: https://salsa.debian.org/python-team/packages/python-bitarray
 Rules-Requires-Root: no
+XS-Pexip-Upstream: http://deb.debian.org/debian/ trixie
 
 Package: python3-bitarray
 Architecture: any
